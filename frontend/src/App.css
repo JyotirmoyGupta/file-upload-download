@@ -1,0 +1,93 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.main {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#fetch input,
+#upload input {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#fetch button,
+#upload button{
+  margin-right: 10px;
+}
+#fetch button,
+#upload button,
+#upload label,
+#save button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#fetch button:disabled,
+#upload button:disabled,
+#upload label:disabled,
+#save button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#fetch button:hover,
+#upload button:hover,
+#upload label:hover,
+#save button:hover {
+  background-color: #0056b3;
+}
+
+
+#upload label {
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#upload label:hover {
+  background-color: #218838;
+}
+#save{
+  display: flex;
+    gap: 3vh;
+}
+#save button {
+  margin-top: 10px;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    margin: 20px;
+    padding: 10px;
+  }
+}
