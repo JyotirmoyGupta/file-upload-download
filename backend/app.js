@@ -2,8 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const multer = require("multer");
-const fs = require("fs");
 
 const app = express();
 const port = 5000;
@@ -18,15 +16,11 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
 
 const File = mongoose.model('File', {
   name: String,
   content: String,
 });
-
-
 
 app.get("/api/file/:name", async (req, res) => {
   const { name } = req.params;
@@ -34,7 +28,7 @@ app.get("/api/file/:name", async (req, res) => {
   res.json(file);
 });
 
-app.post("/api/upload", upload.single("file"), async (req, res) => {
+app.post("/api/upload", async (req, res) => {
   try {
     const { file } = req;
 
@@ -52,6 +46,7 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
 app.get("/api/download/:name", async (req, res) => {
   const { name } = req.params;
   const file = await File.findOne({ name });

@@ -59,6 +59,7 @@ function App() {
       console.log("No file selected");
     }
   };
+  
   const handleFileUpload = async () => {
     setIsUpload(false);
     try {
